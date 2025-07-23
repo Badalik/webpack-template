@@ -1,5 +1,7 @@
 # Webpack template
 
+Webpack template for quick start with **Typescript** for scripts, **Pug** for templates and **SCSS** for styles. 
+**Eslint** is used for linting scripts and **Stylelint** used for linting scss.
 ## Install
 ```
 npm install --legacy-peer-deps
