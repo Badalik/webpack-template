@@ -1,0 +1,224 @@
+@use '../../styles/abstracts/functions';
+@use '../../styles/abstracts/rupture';
+@use '../../styles/abstracts/variables';
+
+.rich-text {
+  color: variables.$color-text;
+
+  @include rupture.below('m') {
+    font-size: functions.to-rem(15px);
+  }
+
+  p,
+  .p {
+    margin-bottom: functions.to-rem(20px);
+    line-height: 1.58;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: variables.$color-red;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: bottom;
+  }
+
+  figure {
+    margin-bottom: 20px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: variables.$font-proxima;
+    font-weight: 600;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-bottom: functions.to-rem(20px);
+    font-size: functions.to-rem(38px);
+    line-height: 1.05;
+
+    @include rupture.at('m') {
+      margin-bottom: functions.to-rem(18px);
+      font-size: functions.to-rem(30px);
+    }
+
+    @include rupture.below(variables.$m-width) {
+      margin-bottom: functions.to-rem(15px);
+      font-size: functions.to-rem(28px);
+    }
+  }
+
+  h4 {
+    margin-bottom: functions.to-rem(20px);
+    font-size: functions.to-rem(28px);
+    line-height: 1.14;
+
+    @include rupture.below('m') {
+      font-size: functions.to-rem(26px);
+    }
+
+    @include rupture.at('m') {
+      margin-bottom: functions.to-rem(18px);
+    }
+
+    @include rupture.below(variables.$m-width) {
+      margin-bottom: functions.to-rem(15px);
+    }
+  }
+
+  h5,
+  h6 {
+    margin-bottom: functions.to-rem(16px);
+    font-size: functions.to-rem(22px);
+    line-height: 1.1;
+
+    @include rupture.at('m') {
+      margin-bottom: functions.to-rem(17px);
+    }
+
+    @include rupture.below(variables.$m-width) {
+      margin-bottom: functions.to-rem(15px);
+    }
+  }
+
+  section,
+  .section {
+    &:not(.mr_b_0, .mr_b_small, .mr_b_middle, .mr_b_big) {
+      margin-bottom: functions.to-rem(30px);
+
+      @include rupture.below('m') {
+        margin-bottom: functions.to-rem(25px);
+      }
+    }
+  }
+
+  li {
+    margin-bottom: functions.to-rem(10px);
+    line-height: 1.58;
+  }
+
+  ol {
+    > li {
+      position: relative;
+      margin-bottom: functions.to-rem(16px);
+      padding-left: functions.to-rem(34px);
+      counter-increment: customlistcounter;
+
+      &:before {
+        position: absolute;
+        top: functions.to-rem(2px);
+        left: 0;
+        width: functions.to-rem(23px);
+        height: functions.to-rem(23px);
+        font-size: functions.to-rem(12px);
+        font-weight: 700;
+        line-height: functions.to-rem(23px);
+        text-align: center;
+        content: counter(customlistcounter);
+        color: variables.$color-text;
+        background-color: #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 5px rgba(variables.$color-text-rgb, 0.6);
+      }
+    }
+  }
+
+  ul {
+    margin-left: functions.to-rem(17px);
+    list-style-type: disc;
+
+    &.talk {
+      margin-left: 0;
+      padding-left: functions.to-rem(19px);
+      list-style-type: none;
+
+      li {
+        text-indent: functions.to-rem(-19px);
+
+        &:before {
+          content: '\2014\a0';
+        }
+      }
+    }
+  }
+
+  code {
+    padding: 1px 5px 3px;
+    font-size: 85%;
+    white-space: break-spaces;
+    background-color: #818b981f;
+    border-radius: 6px;
+  }
+
+  .align_center {
+    text-align: center;
+  }
+
+  .mr {
+    &_b {
+      &_0 {
+        margin-bottom: 0;
+      }
+
+      &_big {
+        margin-bottom: functions.to-rem(60px);
+
+        @include rupture.below('m') {
+          margin-bottom: functions.to-rem(35px);
+        }
+      }
+
+      &_middle {
+        margin-bottom: functions.to-rem(30px);
+
+        @include rupture.below('m') {
+          margin-bottom: functions.to-rem(25px);
+        }
+      }
+
+      &_small {
+        margin-bottom: functions.to-rem(20px);
+      }
+    }
+  }
+
+  .l {
+    &_left {
+      @include rupture.below('l') {
+        text-align: left;
+      }
+    }
+  }
+
+  .m {
+    &_align_left {
+      @include rupture.below('m') {
+        text-align: left;
+      }
+    }
+  }
+}

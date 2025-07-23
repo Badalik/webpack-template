@@ -1,0 +1,12 @@
+@use '../../styles/abstracts/functions';
+@use '../../styles/abstracts/variables';
+
+.page {
+  height: 100%;
+  min-height: 100%;
+  font-family: variables.$font-verdana;
+  font-size: functions.to-rem(16px);
+  font-weight: 400;
+  color: variables.$color-text;
+  background-color: variables.$color-bg;
+}

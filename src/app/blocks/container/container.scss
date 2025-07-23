@@ -1,0 +1,40 @@
+@use '../../styles/abstracts/functions';
+@use '../../styles/abstracts/rupture';
+@use '../../styles/abstracts/variables';
+
+.container {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: functions.to-rem(25px);
+  padding-left: functions.to-rem(25px);
+  width: functions.to-rem(variables.$site-width);
+
+  @include rupture.between('l', 'xl') {
+    padding-right: functions.to-rem(22px);
+    padding-left: functions.to-rem(22px);
+  }
+
+  @include rupture.at('xl') {
+    width: functions.to-rem(variables.$min-d-width);
+  }
+
+  @include rupture.at('l') {
+    width: functions.to-rem(variables.$t-width);
+  }
+
+  @include rupture.below('m') {
+    padding-right: functions.to-rem(16px);
+    padding-left: functions.to-rem(16px);
+    width: 100%;
+    min-width: functions.to-rem(320px);
+  }
+
+  &_small {
+    width: functions.to-rem(790px);
+
+    @include rupture.at('xl') {
+      width: functions.to-rem(790px);
+    }
+  }
+}

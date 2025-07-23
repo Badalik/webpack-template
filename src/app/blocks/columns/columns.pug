@@ -1,0 +1,7 @@
+mixin columns()
+  +b.columns&attributes(attributes)
+    block
+
+mixin col(size, tag)
+  +b(tag ? tag : 'div').col&attributes(attributes)(class=size ? '_' + size : '')
+    block

@@ -1,0 +1,13 @@
+include ../../../../node_modules/bemto.pug/bemto_webpack
+include ../page/page
+include ../scripts/scripts
+
+doctype html
+html
+  include ../head/head
+  +page(class=pageMod ? '_' + pageMod : '')
+    .grid__wrapper
+      main.grid__content
+        block content
+    +scripts(['main.ts'])
+

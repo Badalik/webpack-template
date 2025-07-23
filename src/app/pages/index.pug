@@ -1,0 +1,27 @@
+extends ../blocks/layout-default/layout-default
+include ../blocks/container/container
+include ../blocks/rich-text/rich-text
+include ../blocks/code/code
+
+block head
+  - var pageTitle = 'Webpack Template';
+  - var pageMod = '';
+
+block content
+  +container()._small
+    +rich-text()
+      section
+        h2.align_center Webpack Template
+      section
+        h4 Install
+        +code().language-typescript
+          | npm install --legacy-peer-deps
+        h4 Pages
+        p
+          | The pages are located in the <code>src/app/pages</code> and are added automatically to the build.
+        h4 SVG Sprite
+        p
+          | The sprite is build automatically when the application is launched from the folder
+          | <code>src/icons</code>. To manually build a sprite, run the command:
+        +code().language-typescript
+          | npm run icons

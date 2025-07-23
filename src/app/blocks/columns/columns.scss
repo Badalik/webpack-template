@@ -1,0 +1,134 @@
+@use '../../styles/abstracts/functions';
+@use '../../styles/abstracts/rupture';
+@use '../../styles/abstracts/variables';
+
+.columns {
+  margin-right: functions.to-rem(-10px);
+  margin-left: functions.to-rem(-10px);
+  white-space: nowrap;
+  letter-spacing: -0.35em;
+
+  @include rupture.below('l') {
+    @supports (flex-wrap:wrap) {
+      flex-wrap: wrap;
+    }
+  }
+
+  @include rupture.below(variables.$m-width) {
+    margin-right: functions.to-rem(-6px);
+    margin-left: functions.to-rem(-6px);
+  }
+
+  @supports (flex-wrap: wrap) {
+    display: flex;
+    justify-content: flex-start;
+    white-space: normal;
+    letter-spacing: normal;
+  }
+}
+
+.col {
+  padding-right: functions.to-rem(10px);
+  padding-left: functions.to-rem(10px);
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  letter-spacing: normal;
+
+  @include rupture.below(variables.$m-width) {
+    padding-right: functions.to-rem(6px);
+    padding-left: functions.to-rem(6px);
+  }
+
+  @supports (flex-wrap: wrap) {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &_mr {
+    &_center {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+
+  &_l {
+    &_mr {
+      &_center {
+        @include rupture.below('l') {
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  &_m {
+    &_mr {
+      &_center {
+        @include rupture.below('l') {
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  @for $num from 1 through 12 {
+    &_#{$num} {
+      width: functions.to-rem(95px * $num);
+
+      @include rupture.at('xl') {
+        width: functions.to-rem(78px * $num);
+      }
+
+      @include rupture.between(variables.$t-width, variables.$l-width) {
+        width: functions.to-rem(62px * $num);
+      }
+
+      @include rupture.at('m') {
+        width: calc(100% / 12 * $num);
+      }
+
+      @include rupture.at('s') {
+        width: calc(100% / 12 * $num);
+      }
+    }
+  }
+
+  @for $num from 1 through 12 {
+    &_t_#{$num} {
+      @include rupture.between(variables.$t-width, variables.$l-width) {
+        width: functions.to-rem(62px * $num);
+      }
+
+      @include rupture.at('m') {
+        width: calc(100% / 12 * $num);
+      }
+
+      @include rupture.at('s') {
+        width: calc(100% / 12 * $num);
+      }
+    }
+  }
+
+  @for $num from 1 through 12 {
+    &_m_#{$num} {
+      @include rupture.at('m') {
+        width: calc(100% / 12 * $num);
+      }
+
+      @include rupture.at('s') {
+        width: calc(100% / 12 * $num);
+      }
+    }
+  }
+
+  @for $num from 1 through 12 {
+    &_s_#{$num} {
+      @include rupture.at('s') {
+        width: calc(100% / 12 * $num);
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@use '../../styles/abstracts/functions';
+@use '../../styles/abstracts/rupture';
+@use '../../styles/abstracts/variables';
+
+html {
+  height: 100%;
+}
+
+::selection {
+  background-color: variables.$color-selection;
+}
+
+.grid {
+  &__wrapper {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+  }
+
+  &__content {
+    padding-top: functions.to-rem(60px);
+    padding-bottom: functions.to-rem(40px);
+
+    @include rupture.below('m') {
+      padding-bottom: functions.to-rem(35px);
+    }
+
+    @include rupture.at('m') {
+      padding-top: functions.to-rem(30px);
+    }
+
+    @include rupture.below(variables.$m-width) {
+      padding-top: functions.to-rem(25px);
+    }
+  }
+
+  &__full {
+    margin-right: functions.to-rem(-25px);
+    margin-left: functions.to-rem(-25px);
+
+    @include rupture.at('xl') {
+      margin-right: functions.to-rem(-10px);
+      margin-left: functions.to-rem(-10px);
+    }
+
+    @include rupture.below('l') {
+      margin-right: functions.to-rem(-16px);
+      margin-left: functions.to-rem(-16px);
+    }
+  }
+
+  &__title {
+    margin-bottom: functions.to-rem(30px);
+    padding-bottom: functions.to-rem(20px);
+    border-bottom: 1px solid variables.$color-yellow;
+
+    @include rupture.below(variables.$m-width) {
+      font-size: functions.to-rem(28px);
+    }
+  }
+}
