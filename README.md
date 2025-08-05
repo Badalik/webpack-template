@@ -6,6 +6,10 @@ Webpack template for quick start with **Typescript** for scripts, **Pug** for te
 ```
 npm install --legacy-peer-deps
 ```
+If you get an error with **ajv** then run the command
+```
+npm dedupe --force
+```
 ## Pages
 The pages are located in the <code>src/app/pages</code> and are added automatically to the build.
 ## Blocks

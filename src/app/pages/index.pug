@@ -19,6 +19,10 @@ block content
         h4 Install
         +code().language-typescript
           | npm install --legacy-peer-deps
+        p
+          | If you get an error with <b>ajv</b> then run the command
+        +code().language-typescript
+          | npm dedupe --force
         h4 Pages
         p
           | The pages are located in the <code>src/app/pages</code> and are added automatically to the build.
