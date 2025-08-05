@@ -1,10 +1,9 @@
-import { fixupPluginRules } from '@eslint/compat';
 import eslint from '@eslint/js';
 import stylisticTs from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
-import rxjs from 'eslint-plugin-rxjs';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import rxjsX from 'eslint-plugin-rxjs-x';
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -12,11 +11,11 @@ export default tseslint.config(
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
   importPlugin.flatConfigs.recommended,
+  rxjsX.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     plugins: {
       '@stylistic': stylisticTs,
-      rxjs: fixupPluginRules(rxjs),
     },
     languageOptions: {
       globals: globals.browser,
@@ -256,21 +255,21 @@ export default tseslint.config(
       }],
       '@stylistic/semi': ['error', 'always'],
       '@stylistic/arrow-parens': ['error', 'always'],
-      'rxjs/no-async-subscribe': 'error',
-      'rxjs/no-ignored-observable': 'warn',
-      'rxjs/no-compat': 'error',
-      'rxjs/no-connectable': 'error',
-      'rxjs/no-create': 'error',
-      'rxjs/no-ignored-notifier': 'error',
-      'rxjs/no-ignored-replay-buffer': 'error',
-      'rxjs/no-internal': 'error',
-      'rxjs/no-nested-subscribe': 'warn',
-      'rxjs/no-subject-unsubscribe': 'error',
-      'rxjs/no-unbound-methods': 'error',
-      'rxjs/no-unsafe-catch': 'error',
-      'rxjs/no-unsafe-first': 'error',
-      'rxjs/no-unsafe-switchmap': 'error',
-      'rxjs/no-unsafe-takeuntil': 'error',
+      'rxjs-x/no-async-subscribe': 'error',
+      'rxjs-x/no-floating-observables': 'warn',
+      'rxjs-x/no-compat': 'error',
+      'rxjs-x/no-connectable': 'error',
+      'rxjs-x/no-create': 'error',
+      'rxjs-x/no-ignored-notifier': 'error',
+      'rxjs-x/no-ignored-replay-buffer': 'error',
+      'rxjs-x/no-internal': 'error',
+      'rxjs-x/no-nested-subscribe': 'warn',
+      'rxjs-x/no-subject-unsubscribe': 'error',
+      'rxjs-x/no-unbound-methods': 'error',
+      'rxjs-x/no-unsafe-catch': 'error',
+      'rxjs-x/no-unsafe-first': 'error',
+      'rxjs-x/no-unsafe-switchmap': 'error',
+      'rxjs-x/no-unsafe-takeuntil': 'error',
     },
   },
 );
