@@ -1,9 +1,9 @@
 import eslint from '@eslint/js';
 import stylisticTs from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
+import rxjsX from 'eslint-plugin-rxjs-x';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import rxjsX from 'eslint-plugin-rxjs-x';
 
 export default tseslint.config(
   eslint.configs.recommended,
