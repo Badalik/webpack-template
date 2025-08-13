@@ -3,17 +3,19 @@ import stylisticTs from '@stylistic/eslint-plugin';
 import importPlugin from 'eslint-plugin-import';
 import rxjsX from 'eslint-plugin-rxjs-x';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import tsEslint, { configs as tsEslintConfigs } from 'typescript-eslint';
 
-export default tseslint.config(
-  eslint.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
-  importPlugin.flatConfigs.recommended,
-  rxjsX.configs.recommended,
+export default tsEslint.config(
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
+    extends: [
+      eslint.configs.recommended,
+      tsEslintConfigs.strictTypeChecked,
+      tsEslintConfigs.stylisticTypeChecked,
+      importPlugin.flatConfigs.recommended,
+      importPlugin.flatConfigs.typescript,
+      rxjsX.configs.recommended,
+    ],
     plugins: {
       '@stylistic': stylisticTs,
     },
